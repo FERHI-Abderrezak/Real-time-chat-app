@@ -1,38 +1,212 @@
+/* Reset some default styles */
+body,
+html,
+#root,
 .App {
-  text-align: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App {
   display: flex;
   flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f2f5;
+  height: 100%;
+}
+
+.app-header {
+  background-color: #1976d2;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info span {
+  margin-right: 10px;
+}
+
+.chat-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+}
+
+.sidebar .MuiListItem-root {
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.sidebar .MuiListItem-root.Mui-selected {
+  background-color: #1976d2;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-image: url("https://www.transparenttextures.com/patterns/white-wall-2.png");
+}
+
+.message {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.own-message {
+  flex-direction: row-reverse;
+}
+
+.other-message {
+  flex-direction: row;
+}
+
+.message-avatar {
+  margin: 0 10px;
+}
+
+.message-content {
+  max-width: 70%;
+  background-color: #e4e6eb;
+  padding: 10px 15px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.own-message .message-content {
+  background-color: #1976d2;
+  color: white;
+}
+
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.message-username {
+  font-weight: bold;
+}
+
+.message-timestamp {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.own-message .message-timestamp {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.message-text {
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.message-file {
+  display: flex;
+  align-items: center;
+  color: #1976d2;
+  text-decoration: none;
+}
+
+.message-file:hover {
+  text-decoration: underline;
+}
+
+.chat-form {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.input-container .MuiTextField-root {
+  flex: 1;
+}
+
+.file-upload-label {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #1976d2;
+}
+
+.file-upload-label:hover {
+  color: #115293;
+}
+
+.chat-form .MuiButton-root {
+  margin-left: 10px;
+}
+
+.login-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  .chat-main {
+    flex: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .user-info {
+    margin-top: 10px;
+  }
+
+  .message-content {
+    max-width: 85%;
   }
 }
